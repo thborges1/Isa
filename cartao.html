@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Isabele 🖤🧡</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="cartao.css">
+
+</head>
+<body>
+
+<!-- Chuva -->
+<div class="rain" id="rain"></div>
+
+<!-- Nuvens -->
+<div class="clouds">
+  <div class="cloud" style="width:300px;height:80px;top:20px;animation-duration:40s;animation-delay:-10s;"></div>
+  <div class="cloud" style="width:200px;height:60px;top:60px;animation-duration:55s;animation-delay:-25s;opacity:0.5;"></div>
+  <div class="cloud" style="width:400px;height:100px;top:5px;animation-duration:70s;animation-delay:-40s;opacity:0.3;"></div>
+</div>
+
+<div class="card">
+  <!-- Cantos decorativos -->
+  <span class="corner tl">🐱</span>
+  <span class="corner tr">🐱</span>
+  <span class="corner bl">🐱</span>
+  <span class="corner br">🐱</span>
+
+  <span class="umbrella-deco">☂️</span>
+  <div class="date-badge">✦ Xubiruba ✦</div>
+
+  <h1>Para <span>Isabele</span>,<br>com tudo que eu sinto</h1>
+
+  <div class="days-bubble">🖤 10 meses, 1 amor 🧡</div>
+
+  <div class="cats-row">🐱🖤&nbsp;&nbsp;🧡🐱</div>
+
+  <div class="letter-body">
+    <p>
+      Você sabe que eu seria o <span class="highlight-dark">gatinho preto</span> — quieto, aquele que observa mais do que fala.
+      E você, a <span class="highlight">gatinha laranja</span> — cheia de cor, calor e jeito único de iluminar qualquer ambiente.
+      A gente é diferente, mas combina do jeito mais LINDO que existe.
+    </p>
+
+    <p>
+      Tem um lugar que guardo com muito carinho dentro de mim.
+      A gente chama de <span class="formiguinhas-tag">as formiguinhas!</span>. Um lugarzinho simples, mas que ficou marcado pra sempre.
+      Foi lá que eu segurei a sua mão pela primeira vez — e senti que algo muito especial estava começando.
+    </p>
+
+    <p>
+      Era um dia nublado, daqueles que a gente gosta. A chuva caindo, o guarda-chuva dividido entre nós dois,
+      e um silêncio que dizia mais do que qualquer palavra. Foi naquele momento, debaixo daquela chuva,
+      que eu te pedi pra ser minha namorada. E foi lá que aconteceu nosso <span class="highlight">primeiro beijo</span>.
+    </p>
+
+    <p>
+      Já se passaram <span class="highlight">308 dias</span> desde aquele dia. E em cada um deles, eu tenho certeza da escolha que fiz.
+      Você é a pessoa com quem eu quero dividir os dias nublados e os dias de sol —
+      mas principalmente os nublados, porque eles têm um gosto melhor com você do meu lado.
+    </p>
+
+    <p>
+      Feliz Dia dos Namorados, Meu amorrrr. 🖤🧡
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="signature">
+    Com amor, o seu gatinho preto
+    <span class="cats-sign">🐱🖤 &nbsp;+&nbsp; 🧡🐱</span>
+  </div>
+</div>
+
+<script>
+  // Gera chuva
+  const rain = document.getElementById('rain');
+  for (let i = 0; i < 80; i++) {
+    const drop = document.createElement('div');
+    drop.className = 'drop';
+    const height = Math.random() * 60 + 30;
+    drop.style.cssText = `
+      left: ${Math.random() * 100}%;
+      height: ${height}px;
+      animation-duration: ${Math.random() * 1.5 + 0.8}s;
+      animation-delay: ${Math.random() * 3}s;
+      opacity: ${Math.random() * 0.4 + 0.1};
+    `;
+    rain.appendChild(drop);
+  }
+</script>
+</body>
+</html>

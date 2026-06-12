@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Isabele ☂️</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="rain" id="rain"></div>
+<div class="cloud" style="width:320px;height:80px;top:15px;animation-duration:45s;animation-delay:-8s;"></div>
+<div class="cloud" style="width:200px;height:60px;top:55px;animation-duration:60s;animation-delay:-30s;opacity:.5;"></div>
+<div class="cloud" style="width:420px;height:90px;top:5px;animation-duration:75s;animation-delay:-50s;opacity:.3;"></div>
+
+<div class="scene">
+  <p class="hint" id="hint">☂️ clique no envelope</p>
+
+  <div class="env-wrap" id="envelope">
+
+    <!-- SVG: corpo + aba -->
+    <svg class="env-svg" viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#2a1f3d"/>
+          <stop offset="100%" stop-color="#1e1530"/>
+        </linearGradient>
+        <linearGradient id="flapGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#362050"/>
+          <stop offset="100%" stop-color="#2a1840"/>
+        </linearGradient>
+        <!-- Sombra interna da aba -->
+        <filter id="flapShadow" x="-5%" y="-5%" width="110%" height="110%">
+          <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="rgba(0,0,0,0.5)"/>
+        </filter>
+      </defs>
+
+      <!-- Corpo do envelope -->
+      <rect x="0" y="0" width="340" height="220" rx="6" ry="6"
+            fill="url(#bodyGrad)"
+            stroke="rgba(100,140,200,0.25)" stroke-width="1"/>
+
+      <!-- Linhas V internas (dobras) -->
+      <polygon points="0,220 170,110 340,220"
+               fill="rgba(100,140,180,0.08)"/>
+      <line x1="0" y1="220" x2="170" y2="110"
+            stroke="rgba(100,140,200,0.15)" stroke-width="1"/>
+      <line x1="340" y1="220" x2="170" y2="110"
+            stroke="rgba(100,140,200,0.15)" stroke-width="1"/>
+
+      <!-- Aba (abre pra cima) -->
+      <g class="flap-group" filter="url(#flapShadow)">
+        <polygon points="0,0 340,0 170,115"
+                 fill="url(#flapGrad)"/>
+        <!-- borda da aba -->
+        <line x1="0" y1="0" x2="170" y2="115"
+              stroke="rgba(100,140,200,0.2)" stroke-width="1"/>
+        <line x1="340" y1="0" x2="170" y2="115"
+              stroke="rgba(100,140,200,0.2)" stroke-width="1"/>
+      </g>
+
+      <!-- Selo (sobre a aba) -->
+      <g class="seal-group">
+        <circle cx="170" cy="68" r="20"
+                fill="url(#sealGrad)"
+                stroke="rgba(140,170,220,0.5)" stroke-width="1.5"/>
+        <text x="170" y="74" text-anchor="middle" font-size="16">🖤</text>
+      </g>
+
+      <defs>
+        <radialGradient id="sealGrad" cx="40%" cy="35%">
+          <stop offset="0%" stop-color="#3a4a7a"/>
+          <stop offset="100%" stop-color="#1a2550"/>
+        </radialGradient>
+      </defs>
+    </svg>
+
+    <!-- Carta espiando -->
+    <div class="letter-peek">
+      <div class="cat-row">🐱🖤 &nbsp; 🧡🐱</div>
+      <div class="to">Para <span>Isabele</span></div>
+    </div>
+
+  </div>
+
+  <button class="open-btn" id="openBtn">abrir a carta ✉️</button>
+</div>
+
+<script>
+  // Chuva
+  const rain = document.getElementById('rain');
+  for (let i = 0; i < 80; i++) {
+    const d = document.createElement('div');
+    d.className = 'drop';
+    d.style.cssText = `
+      left:${Math.random()*100}%;
+      height:${Math.random()*60+30}px;
+      animation-duration:${Math.random()*1.5+0.7}s;
+      animation-delay:${Math.random()*4}s;
+      opacity:${Math.random()*0.4+0.1};
+    `;
+    rain.appendChild(d);
+  }
+
+  // Envelope
+  const env  = document.getElementById('envelope');
+  const btn  = document.getElementById('openBtn');
+  const hint = document.getElementById('hint');
+  let opened = false;
+
+  env.addEventListener('click', () => {
+    if (opened) return;
+    opened = true;
+    hint.classList.add('hidden');
+    env.classList.add('open');
+    setTimeout(() => btn.classList.add('visible'), 1300);
+  });
+
+  btn.addEventListener('click', () => {
+    window.location.href = 'cartao.html';
+  });
+</script>
+</body>
+</html>
